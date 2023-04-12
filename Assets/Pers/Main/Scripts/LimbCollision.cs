@@ -12,7 +12,6 @@ public class LimbCollision : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.LogWarning(1);
         _playerController._isGrounded = true;
     }
 }

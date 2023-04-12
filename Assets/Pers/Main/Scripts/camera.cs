@@ -8,7 +8,6 @@ public class camera : MonoBehaviour
     private Transform targetTransform;
     public Transform aimingTarget;
     public Transform notAimingTarget;
-    public GameObject aimer;
     private Camera _Cam;
     public Camera Cam
     {
@@ -23,7 +22,7 @@ public class camera : MonoBehaviour
     }
     public Vector3 CamOffset = Vector3.zero;
     public Vector3 ZoomOffset = Vector3.zero;
-    public float senstivity = 50;
+    public float senstivity = 5;
     public float minY = 30;
     public float maxY = 50;
     public bool isZooming;
@@ -38,16 +37,15 @@ public class camera : MonoBehaviour
 
         if (aiming)
         {
-            aimer.SetActive(true);
             targetTransform = aimingTarget;
             CamOffset = new Vector3(0, 0, -8);
         }
         else
         {
-            aimer.SetActive(false);
             targetTransform = notAimingTarget;
             CamOffset = new Vector3(0, 0, -10);
         }
+
     }
 
     void LateUpdate()
@@ -56,21 +54,7 @@ public class camera : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(currentY, currentX, 0);
         transform.position = targetTransform.position + rotation * dist;
         transform.LookAt(targetTransform.position);
-        CheckWall();
     }
-    public LayerMask wallLayer;
-    void CheckWall()
-    {
-        RaycastHit hit;
-        Vector3 start = targetTransform.position;
-        Vector3 dir = transform.position - targetTransform.position;
-        float dist = CamOffset.z * -1;
-        if (Physics.Raycast(targetTransform.position, dir, out hit, dist, wallLayer))
-        {
-            float hitDist = hit.distance;
-            Vector3 sphereCastCenter = targetTransform.position + (dir.normalized * hitDist);
-            transform.position = sphereCastCenter;
-        }
-    }
+    
 
 }
