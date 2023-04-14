@@ -5,19 +5,18 @@ using TMPro;
 
 public class DialogWindow : MonoBehaviour
 {
-    private TMP_Text _character;
-    private TMP_Text _monologue;
+    [SerializeField]private TMP_Text _character;
+    [SerializeField]private TMP_Text _monologue;
 
     public string CharacterName;
     public Queue<string> Phrases = new Queue<string>();
 
     private void Update()
     {
-        if (Phrases.Count <= 0) gameObject.SetActive(false);
-
         if (Input.GetKeyDown(KeyCode.E))
         {
-            PutNextPharse();
+            if (Phrases.Count <= 0) gameObject.SetActive(false);
+            else PutNextPharse();
         }
     }
 
@@ -29,7 +28,16 @@ public class DialogWindow : MonoBehaviour
 
     public void SetNameAndMono(string name, Queue<string> mono)
     {
+        print(CharacterName);
         CharacterName = name;
         Phrases = mono;
+        _character.text = CharacterName;
+        _monologue.text = Phrases.Dequeue();
+    }
+
+    private void OnDisable()
+    {
+        CharacterName = "";
+        Phrases = null;
     }
 }
