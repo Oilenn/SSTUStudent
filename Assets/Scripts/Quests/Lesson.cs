@@ -20,8 +20,8 @@ public class Lesson : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(_colliderZone.HasExit);
-        Debug.Log(_mathWoman.IsLooking);
+        //Debug.Log(_colliderZone.HasExit);
+        //Debug.Log(_mathWoman.IsLooking);
         if (_colliderZone.HasExit && _mathWoman.IsLooking)
         {
             HasFind = true;

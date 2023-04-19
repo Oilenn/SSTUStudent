@@ -7,6 +7,11 @@ public class FirstQuest : MonoBehaviour
     [Header("Phrases. The first element must to be name of a character.")]
     [SerializeField] private List<string> MathWoman = new List<string>();
     [SerializeField] private List<string> Nikita = new List<string>();
+    [SerializeField] private GameObject _workPaper;
+    [SerializeField] private GameObject _player;
+
+    private Transform _colliderZone;
+    private bool _hasWorkOpened;
 
     [Header("")]
     [SerializeField] private GameObject _window;
@@ -14,6 +19,8 @@ public class FirstQuest : MonoBehaviour
 
     private void Start()
     {
+        _colliderZone = transform.GetChild(0);
+        //_player = GameObject.FindGameObjectWithTag("Player");
         _dialogWindow = _window.GetComponent<DialogWindow>();
     }
 
@@ -25,11 +32,35 @@ public class FirstQuest : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && !_window.activeSelf)
+        //Debug.Log(_colliderZone.transform.position);
+        //Debug.Log(_player.transform.position);
+        if (!_hasWorkOpened)
         {
-            Queue<string> phrases = new Queue<string>(MathWoman);
-            //Первый элемент в очереди - имя персонажа, с кем будет вестись диалог.
-            StartDialog(phrases.Dequeue(), phrases);
+            if (Vector3.Distance(_colliderZone.transform.position, _player.transform.position) < 1)
+            {
+                if (Input.GetKeyDown(KeyCode.R))
+                {
+                    Debug.Log("Opened");
+                    _workPaper.SetActive(true);
+                    _hasWorkOpened = true;
+                }
+            }
+        }
+        else if (_hasWorkOpened)
+        {
+            if (Input.GetKeyDown(KeyCode.R) || Vector3.Distance(_colliderZone.transform.position, _player.transform.position) > 2)
+                {
+                    Debug.Log("Closed");
+                    _workPaper.SetActive(false);
+                    _hasWorkOpened = false;
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.E) && !_window.activeSelf)
+            {
+                Queue<string> phrases = new Queue<string>(MathWoman);
+                //Первый элемент в очереди - имя персонажа, с кем будет вестись диалог.
+                StartDialog(phrases.Dequeue(), phrases);
+            }
         }
     }
-}
