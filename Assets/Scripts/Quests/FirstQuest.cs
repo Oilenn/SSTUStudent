@@ -5,20 +5,25 @@ using UnityEngine;
 public class FirstQuest : MonoBehaviour
 {
     [Header("Phrases. The first element must to be name of a character.")]
-    [SerializeField] private List<string> MathWoman = new List<string>();
-    [SerializeField] private List<string> Nikita = new List<string>();
+    [SerializeField] private List<string> CameAtLesson = new List<string>();
+    [SerializeField] private List<string> SatDown = new List<string>();
+
+
     [SerializeField] private GameObject _workPaper;
     [SerializeField] private GameObject _player;
 
-    private Transform _colliderZone;
-    private bool _hasWorkOpened;
+    private Lesson _lesson;
+
+    private Transform _colliderZone;//Триггер рабочего места игрока(парта)
+    private bool _hasWorkOpened;//Открыта ли работа игрока
 
     [Header("")]
-    [SerializeField] private GameObject _window;
+    [SerializeField] private GameObject _window;//Объект диалогового окна
     private DialogWindow _dialogWindow;
 
     private void Start()
     {
+        _lesson = GetComponent<Lesson>();
         _colliderZone = transform.GetChild(0);
         //_player = GameObject.FindGameObjectWithTag("Player");
         _dialogWindow = _window.GetComponent<DialogWindow>();
@@ -30,8 +35,38 @@ public class FirstQuest : MonoBehaviour
         _dialogWindow.SetNameAndMono(name, phrases);
     }
 
+    //Запустить диалог, который будет срабатывать один раз и больше не проигрываться
+    private void PlayDialogOnce(List<string> PhrasesLst)
+    {
+        if (PhrasesLst.Count > 0)
+        {
+            Queue<string> phrases = new Queue<string>(PhrasesLst);
+            StartDialog(phrases.Dequeue(), new Queue<string>(phrases));
+            PhrasesLst.Clear();
+        }
+    }
+
+    //Запустить многоповторяемый диалог
+    private void PlayDialog(List<string> PhrasesLst)
+    {
+        Queue<string> phrases = new Queue<string>(PhrasesLst);
+        StartDialog(phrases.Dequeue(), phrases);
+    }
+
     private void Update()
     {
+        //диалог,когда игрок пришёл на пару
+        if (_lesson.HasCame)
+        {
+            PlayDialogOnce(CameAtLesson);
+        }
+
+        //диалог, когда игрок сел за парту
+        if (_lesson.LessonStarted)
+        {
+            PlayDialogOnce(SatDown);
+        }
+
         //Debug.Log(_colliderZone.transform.position);
         //Debug.Log(_player.transform.position);
         if (!_hasWorkOpened)
@@ -55,12 +90,13 @@ public class FirstQuest : MonoBehaviour
                     _hasWorkOpened = false;
                 }
             }
-
+            /*
             if (Input.GetKeyDown(KeyCode.E) && !_window.activeSelf)
             {
-                Queue<string> phrases = new Queue<string>(MathWoman);
+                Queue<string> phrases = new Queue<string>(CameAtLesson);
                 //Первый элемент в очереди - имя персонажа, с кем будет вестись диалог.
                 StartDialog(phrases.Dequeue(), phrases);
             }
+            */
         }
     }

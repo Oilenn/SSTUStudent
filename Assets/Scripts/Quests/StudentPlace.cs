@@ -13,18 +13,21 @@ public class StudentPlace : MonoBehaviour
         _les = transform.parent.GetComponent<Lesson>();
     }
 
+    //Игрок отходит от стола
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            if(_les.HasCame) HasExit = true;
+            if(_les.LessonStarted) HasExit = true;
         }
     }
+
+    //Игрок садится за своё место
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            if (!_les.HasCame) _les.PlayerCame();
+            if (!_les.LessonStarted) _les.StartLesson();
             else HasExit = false;
         }
     }

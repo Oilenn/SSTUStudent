@@ -8,13 +8,13 @@ public class Lesson : MonoBehaviour
 
     private StudentPlace _colliderZone;
 
-    private bool _lessonStarted;
-    public bool HasCame { get; private set; }//Пришёл ли игрок 
-    public bool HasFind = false;//Был ли игрок был спален математичкой
+    public bool LessonStarted { get; private set; }//Пришёл ли игрок 
+    public bool HasCame { get; private set; }//Пришёл ли игрок в кабинет
+    public bool HasFind = false;//Был ли игрок спален математичкой
 
     public void StartLesson()
     {
-        _lessonStarted = true;
+        LessonStarted = true;
     }
 
     public void PlayerCame()
@@ -24,6 +24,7 @@ public class Lesson : MonoBehaviour
 
     private void Start()
     {
+        //По стандартному префабу, StudentPlace - первый дочерний элемент
         _colliderZone = transform.GetChild(0).GetComponent<StudentPlace>();
     }
 
@@ -31,7 +32,7 @@ public class Lesson : MonoBehaviour
     {
         //Debug.Log(_colliderZone.HasExit);
         //Debug.Log(_mathWoman.IsLooking);
-        if (_lessonStarted)
+        if (LessonStarted)
         {
             if (_colliderZone.HasExit && _mathWoman.IsLooking)
             {
