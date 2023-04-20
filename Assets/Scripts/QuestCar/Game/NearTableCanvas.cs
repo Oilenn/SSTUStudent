@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class NearTableCanvas : MonoBehaviour
 {
+    public Animator _AnimCamera;
+
     [Header ("Cameras")]
     [SerializeField] GameObject _mainCamera;
     [SerializeField] GameObject _gameCamera;
@@ -11,13 +13,13 @@ public class NearTableCanvas : MonoBehaviour
 
     [Header ("GameObjects")]
     [SerializeField] GameObject _InputCanvas;
-    //[SerializeField] GameObject _GameCanvas;
     [SerializeField] GameObject _Player;
     [SerializeField] GameObject _carMain;
     [SerializeField] GameObject _car;
     [SerializeField] GameObject _LeftHand;
     [SerializeField] GameObject _RightHand;
 
+    camera _scriptCamera;
     arms _scriptArm;
     arms _scriptArm2;
     walk _sciptPlayerEnabled1;
@@ -35,12 +37,8 @@ public class NearTableCanvas : MonoBehaviour
         _animCar = _car.GetComponent<Animation>();
         _scriptArm = _LeftHand.GetComponent<arms>();
         _scriptArm2 = _RightHand.GetComponent<arms>();
-    }
+        _scriptCamera = _mainCamera.GetComponent<camera>();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -58,9 +56,8 @@ public class NearTableCanvas : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             _InputCanvas.SetActive(false);
-            _mainCamera.SetActive(false);
-            _gameCamera.SetActive(true);
-            //_GameCanvas.SetActive(true);
+            _scriptCamera.enabled = false;
+            _AnimCamera.enabled = true;
             _sciptPlayerEnabled1.enabled = false;
             _sciptPlayerEnabled2.enabled = false;
             _scriptArm.enabled = false;
