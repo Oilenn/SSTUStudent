@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
+    [SerializeField] Camera _camera;
+
     [Header("Wheel Colliders")]
     public List<WheelCollider> Front_Wheels; 
     public List<WheelCollider> Back_Wheels; 

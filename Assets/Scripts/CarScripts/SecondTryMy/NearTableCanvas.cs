@@ -18,7 +18,8 @@ public class NearTableCanvas : MonoBehaviour
     [SerializeField] GameObject _LeftHand;
     [SerializeField] GameObject _RightHand;
 
-    arms _sciptArm;
+    arms _scriptArm;
+    arms _scriptArm2;
     walk _sciptPlayerEnabled1;
     playerGun _sciptPlayerEnabled2;
     CarController _sciptCarEnabled;
@@ -32,6 +33,8 @@ public class NearTableCanvas : MonoBehaviour
         _sciptPlayerEnabled2 = _Player.GetComponent<playerGun>();
         _sciptCarEnabled = _carMain.GetComponent<CarController>();
         _animCar = _car.GetComponent<Animation>();
+        _scriptArm = _LeftHand.GetComponent<arms>();
+        _scriptArm2 = _RightHand.GetComponent<arms>();
     }
 
     // Update is called once per frame
@@ -60,6 +63,8 @@ public class NearTableCanvas : MonoBehaviour
             //_GameCanvas.SetActive(true);
             _sciptPlayerEnabled1.enabled = false;
             _sciptPlayerEnabled2.enabled = false;
+            _scriptArm.enabled = false;
+            _scriptArm2.enabled = false;
 
             gameObject.SetActive(false);
             

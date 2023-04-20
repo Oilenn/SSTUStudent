@@ -56,4 +56,21 @@ public class Camera_Controller : MonoBehaviour
 		float acc = car.GetComponent<Rigidbody>().velocity.magnitude;
 		GetComponent<Camera>().fieldOfView = FOV + acc * Zoom_Ratio * Time.deltaTime;  //he removed * Time.deltaTime but it works better if you leave it like this.
 	}
+
+    public LayerMask wallLayer;
+    Vector3 CamOffset = new Vector3(0, 0, -6);
+
+    void CheckWall()
+    {
+        RaycastHit hit;
+        Vector3 start = car.position;
+        Vector3 dir = transform.position - car.position;
+        float dist = CamOffset.z * -1;
+        if (Physics.Raycast(car.position, dir, out hit, dist, wallLayer))
+        {
+            float hitDist = hit.distance;
+            Vector3 sphereCastCenter = car.position + (dir.normalized * hitDist);
+            transform.position = sphereCastCenter;
+        }
+    }
 }
