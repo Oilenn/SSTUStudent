@@ -8,7 +8,7 @@ public class LessonStarter : MonoBehaviour
 
     private void OnDestroy()
     {
-        
+        ActiveQuest.StartLesson();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -25,7 +25,6 @@ public class LessonStarter : MonoBehaviour
         ActiveQuest.enabled = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         

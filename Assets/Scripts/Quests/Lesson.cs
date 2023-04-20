@@ -6,30 +6,42 @@ public class Lesson : MonoBehaviour
 {
     [SerializeField] private MathWoman _mathWoman;
 
-    private GameObject[] _playerParts;
-    private Coll _colliderZone;
+    private StudentPlace _colliderZone;
 
-    
-    public bool HasFind = false;
+    private bool _lessonStarted;
+    public bool HasCame { get; private set; }//Пришёл ли игрок 
+    public bool HasFind = false;//Был ли игрок был спален математичкой
+
+    public void StartLesson()
+    {
+        _lessonStarted = true;
+    }
+
+    public void PlayerCame()
+    {
+        HasCame = true;
+    }
 
     private void Start()
     {
-        _playerParts = GameObject.FindGameObjectsWithTag("Player");
-        _colliderZone = transform.GetChild(0).GetComponent<Coll>();
+        _colliderZone = transform.GetChild(0).GetComponent<StudentPlace>();
     }
 
     private void Update()
     {
         //Debug.Log(_colliderZone.HasExit);
         //Debug.Log(_mathWoman.IsLooking);
-        if (_colliderZone.HasExit && _mathWoman.IsLooking)
+        if (_lessonStarted)
         {
-            HasFind = true;
-        }
+            if (_colliderZone.HasExit && _mathWoman.IsLooking)
+            {
+                HasFind = true;
+            }
 
-        if (HasFind)
-        {
-            Debug.Log("Found");
+            if (HasFind)
+            {
+                Debug.Log("Found");
+            }
         }
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Coll : MonoBehaviour
+public class StudentPlace : MonoBehaviour
 {
     [SerializeField] MathWoman _mathWoman;
     private Lesson _les;
@@ -17,14 +17,15 @@ public class Coll : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            HasExit = true;
+            if(_les.HasCame) HasExit = true;
         }
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            HasExit = false;
+            if (!_les.HasCame) _les.PlayerCame();
+            else HasExit = false;
         }
     }
 }

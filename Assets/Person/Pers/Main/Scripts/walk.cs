@@ -11,7 +11,7 @@ public class walk : MonoBehaviour
     public Transform cam;
     public HingeJoint leftLeg, rightLeg;
 
-    private float _rotationSpeed = 5110;
+    //private float _rotationSpeed = 5110;
 
     void Update()
     {

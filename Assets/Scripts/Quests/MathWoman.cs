@@ -34,7 +34,7 @@ public class MathWoman : MonoBehaviour
     private void Start()
     {
         _animator = gameObject.GetComponent<Animator>();
-        StartCoroutine(OffsetLook());
+        LookAtTable();
     }
 
     void Update()
