@@ -37,13 +37,11 @@ public class camera : MonoBehaviour
 
         if (aiming)
         {
-            
             targetTransform = aimingTarget;
             CamOffset = new Vector3(0, 0, -4);
         }
         else
         {
-            
             targetTransform = notAimingTarget;
             CamOffset = new Vector3(0, 0, -6);
         }

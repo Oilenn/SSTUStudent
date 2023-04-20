@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class walk : MonoBehaviour
 {
+    [SerializeField] private Rigidbody _rbLeftFoot, _rbRightFoot;
+
     public Animator anim;
     public GameObject com;
     public Transform cam;
     public HingeJoint leftLeg, rightLeg;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
+    //private float _rotationSpeed = 5110;
+
     void Update()
     {
         if (Input.GetKey(KeyCode.W))
@@ -42,6 +40,18 @@ public class walk : MonoBehaviour
         else
         {
             anim.Play("walk");
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                anim.speed = 2;
+                _rbLeftFoot.mass = 0.25f;
+                _rbRightFoot.mass = 0.25f;
+            }
+            else
+            {
+                anim.speed = 1;
+                _rbLeftFoot.mass = 1;
+                _rbRightFoot.mass = 1;
+            }
             leftLeg.useSpring = false; rightLeg.useSpring = false;
         }
     }
