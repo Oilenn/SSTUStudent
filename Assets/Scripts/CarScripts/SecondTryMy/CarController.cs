@@ -33,16 +33,16 @@ public class CarController : MonoBehaviour
 
         for (int i = 0; i < (Back_Wheels.Count); i++)
         {
-            Back_Wheels[i].GetWorldPose(out pos, out rot); //get the world rotation & position of the wheel colliders
-            Back_Wheel_Transforms[i].position = pos; //Set the wheel transform positions to the wheel collider positions
-            Back_Wheel_Transforms[i].rotation = rot * Quaternion.Euler(Back_Wheel_Rotation[i]); //Rotate the wheel transforms to the rotation of the wheel collider(s) and the rotation offset
+            Back_Wheels[i].GetWorldPose(out pos, out rot); 
+            Back_Wheel_Transforms[i].position = pos; 
+            Back_Wheel_Transforms[i].rotation = rot * Quaternion.Euler(Back_Wheel_Rotation[i]); 
         }
 
         for (int i = 0; i < (Front_Wheels.Count); i++)
         {
-            Front_Wheels[i].GetWorldPose(out pos, out rot); //get the world rotation & position of the wheel colliders
-            Front_Wheel_Transforms[i].position = pos; //Set the wheel transform positions to the wheel collider positions
-            Front_Wheel_Transforms[i].rotation = rot * Quaternion.Euler(Front_Wheel_Rotation[i]); //Rotate the wheel transforms to the rotation of the wheel collider(s) and the rotation offset
+            Front_Wheels[i].GetWorldPose(out pos, out rot); 
+            Front_Wheel_Transforms[i].position = pos; 
+            Front_Wheel_Transforms[i].rotation = rot * Quaternion.Euler(Front_Wheel_Rotation[i]); 
         }
     }
 
@@ -59,20 +59,24 @@ public class CarController : MonoBehaviour
     {
         foreach(AxleInfo axle in _carAxis)
         {
-            if (axle._steering)
-            {
-                axle._rightWheel.steerAngle = _steerAngel * _horInput;
-                axle._leftWheel.steerAngle = _steerAngel * _horInput;
-            }
+            
+                if (axle._steering)
+                {
+                    axle._rightWheel.steerAngle = _steerAngel * _horInput;
+                    axle._leftWheel.steerAngle = _steerAngel * _horInput;
+                }
 
-            if (axle.motor)
-            {
-                axle._rightWheel.motorTorque = _carSpeed * _verInput;
-                axle._leftWheel.motorTorque = _carSpeed * _verInput;
-            }
+                if (axle.motor)
+                {
+                    axle._rightWheel.motorTorque = _carSpeed * _verInput;
+                    axle._leftWheel.motorTorque = _carSpeed * _verInput;
+                }
+
 
             VisualWheelsToColliders(axle._rightWheel, axle._visRightWheel);
             VisualWheelsToColliders(axle._leftWheel, axle._visLeftWheel);
+
+
         }
     }
 
