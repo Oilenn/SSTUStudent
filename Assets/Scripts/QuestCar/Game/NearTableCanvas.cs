@@ -26,6 +26,7 @@ public class NearTableCanvas : MonoBehaviour
     playerGun _sciptPlayerEnabled2;
     CarController _sciptCarEnabled;
     Animation _animCar;
+    bool flag;
 
 
     // Start is called before the first frame update
@@ -41,19 +42,9 @@ public class NearTableCanvas : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void Update()
     {
-
-        if (other.tag == "Player")
-        {
-            _InputCanvas.SetActive(true);
-        }
-
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && flag)
         {
             _InputCanvas.SetActive(false);
             _scriptCamera.enabled = false;
@@ -64,12 +55,25 @@ public class NearTableCanvas : MonoBehaviour
             _scriptArm2.enabled = false;
 
             gameObject.SetActive(false);
-            
+
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        
+        if (other.tag == "Player")
+        {
+            flag = true;
+            _InputCanvas.SetActive(true);
+        }
+
+    }
+
+
     private void OnTriggerExit(Collider other)
     {
+        flag = false;
         _InputCanvas.SetActive(false);
     }
 

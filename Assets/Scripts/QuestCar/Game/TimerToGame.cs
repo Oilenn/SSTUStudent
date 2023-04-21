@@ -29,7 +29,7 @@ public class TimerToGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && _gameStarter.active)
+        if (Input.GetKeyDown(KeyCode.Return) && _gameStarter.active)
         {
             _gameStarter.SetActive(false);
             _playTimer.enabled = true;

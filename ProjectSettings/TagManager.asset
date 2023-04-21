@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Gun
   - Table
+  - Car
   layers:
   - Default
   - TransparentFX
