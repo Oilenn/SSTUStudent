@@ -7,7 +7,7 @@ public class FirstQuest : MonoBehaviour
     [Header("Phrases. The first element must to be name of a character.")]
     [SerializeField] private List<string> CameAtLesson = new List<string>();
     [SerializeField] private List<string> SatDown = new List<string>();
-
+    [SerializeField] private List<string> Warning = new List<string>();
 
     [SerializeField] private GameObject _workPaper;
     [SerializeField] private GameObject _player;
@@ -65,6 +65,11 @@ public class FirstQuest : MonoBehaviour
         if (_lesson.LessonStarted)
         {
             PlayDialogOnce(SatDown);
+        }
+
+        if (_lesson.HasFind)
+        {
+            PlayDialog(Warning);
         }
 
         //Debug.Log(_colliderZone.transform.position);
