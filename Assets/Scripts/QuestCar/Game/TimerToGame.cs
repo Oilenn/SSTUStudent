@@ -16,6 +16,8 @@ public class TimerToGame : MonoBehaviour
     [SerializeField] GameObject _car;
 
     CarController _sciptCarEnabled;
+    camera _scriptCamera;
+    Animator _cameraAnim;
     Animator _carAnim;
     Animator _playTimer;
     // Start is called before the first frame update
@@ -24,6 +26,8 @@ public class TimerToGame : MonoBehaviour
         _playTimer = gameObject.GetComponent<Animator>();
         _sciptCarEnabled = _carMain.GetComponent<CarController>();
         _carAnim = _car.GetComponent<Animator>();
+        _cameraAnim = _mainCamera.GetComponent<Animator>();
+        _scriptCamera = _mainCamera.GetComponent<camera>();
     }
 
     // Update is called once per frame
@@ -42,5 +46,7 @@ public class TimerToGame : MonoBehaviour
         _carAnim.enabled = true;
         _mainCamera.SetActive(false);
         _camera.SetActive(true);
+        _cameraAnim.enabled = false;
+        _scriptCamera.enabled = true;
     }
 }
