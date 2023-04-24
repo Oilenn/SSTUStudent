@@ -30,7 +30,7 @@ public class DialogWindow : MonoBehaviour
     //Установка имени и фраз монолога
     public void SetNameAndMono(string name, Queue<string> mono)
     {
-        print(CharacterName);
+        //print(CharacterName);
         CharacterName = name;
         Phrases = mono;
         _character.text = CharacterName;
