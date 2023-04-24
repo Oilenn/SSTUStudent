@@ -55,6 +55,7 @@ public class camera : MonoBehaviour
         transform.LookAt(targetTransform.position);
         CheckWall();
     }
+
     public LayerMask wallLayer;
     void CheckWall()
     {

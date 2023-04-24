@@ -9,6 +9,8 @@ public class OnGame : MonoBehaviour
     [SerializeField] GameObject _player;
     [SerializeField] GameObject _LeftArm;
     [SerializeField] GameObject _RightArm;
+    [SerializeField] GameObject _GameMenu;
+
 
     Animator _animCamera;
     Animator _playerAnim;
@@ -47,5 +49,10 @@ public class OnGame : MonoBehaviour
         _scriptRight.enabled = true;
 
         _playerAnim.enabled = true;
+
+        _LeftArm.transform.rotation = Quaternion.Euler(90f, 0f, 0f);
+        _RightArm.transform.rotation = Quaternion.Euler(90f, 0f, 0f);
+
+        _GameMenu.SetActive(true);
     }
 }

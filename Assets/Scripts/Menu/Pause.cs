@@ -53,6 +53,7 @@ public class Pause : MonoBehaviour
         _Set.SetActive(false);
         _scriptCamera.enabled = true;
         _IsPaused = false;
+        Debug.Log(_IsPaused);
     }
 
     public void ScreenOn()
@@ -65,10 +66,10 @@ public class Pause : MonoBehaviour
     public void Exit()
     {
         Time.timeScale = 0f;
-        _GameMenu.SetActive(false);
         _mainCamera.transform.position = new Vector3(-181.9337f, 16.95828f, -59.90916f);
         _mainCamera.transform.rotation = Quaternion.Euler(6.052f, 0.134f, 0.024f);
         _startPanel.SetActive(true);
         _IsPaused = false;
+        _GameMenu.SetActive(false);
     }
 }

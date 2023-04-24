@@ -91,6 +91,7 @@ public class Cubik1 : MonoBehaviour
 
         else if (other.tag == "Car" && _Round == 2 && _flag)
         {
+            _Round--;
             gameObject.SetActive(false);
             Invoke("GamepPlayOn", 4f) ;
             /* отключить аниматор 
@@ -102,7 +103,6 @@ public class Cubik1 : MonoBehaviour
 
         else if(other.tag == "NPC_Car" && _Round == 2)
         {
-            _Round--;
             _WinNpc.SetActive(true);
             _flag = true;
             // включить победную реплику NPC

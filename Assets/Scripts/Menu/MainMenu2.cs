@@ -34,7 +34,7 @@ public class MainMenu2 : MonoBehaviour
 
     private void Update()
     {
-        print(PlayerPrefs.GetString("Name"));
+        
     }
 
     private void Start()
