@@ -50,8 +50,9 @@ public class NearTableCanvas : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && flag)
         {
             _InputCanvas.SetActive(false);
-            
+
             _animCamera.enabled = true;
+            _animCamera.Play("MoveToGame");
             _animPlayer.enabled = false;
 
             _scriptCamera.enabled = false;

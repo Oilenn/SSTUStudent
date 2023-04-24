@@ -3,8 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] Animator _animCamera;
+
     public GameObject _MainMenu;
     public GameObject _SetMenu;
+
 
     public void MainON()
     {
@@ -26,6 +29,15 @@ public class MainMenu : MonoBehaviour
     public void Exit()
     {
         Application.Quit();
+    }
+
+    public void StartGame()
+    {
+        _MainMenu.SetActive(false);
+
+        _animCamera.enabled = true;
+        _animCamera.Play("MoveToPlayer");
+
     }
 
 }

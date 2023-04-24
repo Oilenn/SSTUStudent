@@ -105,7 +105,6 @@ public class Cubik1 : MonoBehaviour
             _Round--;
             _WinNpc.SetActive(true);
             _flag = true;
-            Invoke("GamepPlayOn", 4f);
             // включить победную реплику NPC
         }
 
