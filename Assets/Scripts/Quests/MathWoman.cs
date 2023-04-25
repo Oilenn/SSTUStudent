@@ -14,17 +14,17 @@ public class MathWoman : MonoBehaviour
 
     private IEnumerator OffsetLook()
     {
-        yield return new WaitForSeconds(6);
+        yield return new WaitForSeconds(5);
         LookAtTable();
     }
 
     private IEnumerator LookingAtTable()
     {
-        Debug.Log("Look");
+        //Debug.Log("Look");
         IsLooking = false;
         _animator.SetBool("IsLooking", IsLooking);
         //_animator.Play("LookAtTable");
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(10);
         //_animator.Play("StopLookAtTable");
         IsLooking = true;
         _animator.SetBool("IsLooking", IsLooking);

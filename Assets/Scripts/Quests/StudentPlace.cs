@@ -6,19 +6,23 @@ public class StudentPlace : MonoBehaviour
 {
     [SerializeField] MathWoman _mathWoman;
 
-    [SerializeField] private GameObject _player;
-    [SerializeField] private GameObject _cam;
-    [SerializeField] private GameObject _camRot;
-    [SerializeField] private GameObject _playerSat;
+    [Header("Player prefabs")]
+    [SerializeField] private GameObject _player;//Нынешний игрок
+    [SerializeField] private GameObject _playerSat;//Игрок севший
+    [SerializeField] private GameObject _playerPrefab;//Префаб игрока. Нынешнего игрока - удаляем, этого - ставим.
+    [SerializeField] private Transform _toStandUp;//Позиция где будет появлятся игрок, когда встаёт
 
-    [SerializeField] private GameObject _playerPrefab;
-
-    [SerializeField] private GameObject _satInfo;
+    [Header("UI Elements")]
+    [SerializeField] private GameObject _toSatInfo;//Текст о том, что игрок может сесть
 
     private Lesson _les;
+    //Предыдущая позиция игрока перед удалением
+    private Vector3 _previousPosition;
+    private Quaternion _previousRotation;
 
-    private Transform _previousPosition;
+    private Transform _mainPlayer;
 
+    //Вышел ли игрок из зоны коллайдера
     public bool HasExit { get; private set; }
     public bool HasSat { get; private set; }
 
@@ -31,7 +35,8 @@ public class StudentPlace : MonoBehaviour
 
     private void ChangePreviousPosition()
     {
-        _previousPosition = GameObject.FindGameObjectWithTag("PreviousPosition").transform;
+        _previousPosition = _toStandUp.transform.position;
+        _previousRotation = _toStandUp.transform.rotation;
     }
 
     private void SitDownPlayer()
@@ -41,8 +46,6 @@ public class StudentPlace : MonoBehaviour
 
         ChangePreviousPosition();
         Destroy(_player);
-        _cam.SetActive(false);
-        _camRot.SetActive(false);
     }
 
     public void StandPlayerUp()
@@ -51,10 +54,9 @@ public class StudentPlace : MonoBehaviour
         _playerSat.SetActive(false);
 
         _player = Instantiate(_playerPrefab);
-        _player.transform.position = _previousPosition.position;
-        _player.transform.rotation = _previousPosition.rotation;
-        _cam.SetActive(true);
-        _camRot.SetActive(true);
+        _mainPlayer = GameObject.FindGameObjectWithTag("MainPlayer").transform;
+        _mainPlayer.transform.position = _previousPosition;
+        _mainPlayer.transform.rotation = _previousRotation;
     }
 
     //Игрок отходит от стола
@@ -81,11 +83,11 @@ public class StudentPlace : MonoBehaviour
         {
             if (!HasExit && !HasSat)
             {
-                _satInfo.SetActive(true);
+                _toSatInfo.SetActive(true);
             }
             else
             {
-                _satInfo.SetActive(false);
+                _toSatInfo.SetActive(false);
             }
 
             if (HasExit == false)

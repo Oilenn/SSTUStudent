@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Gun
   - PreviousPosition
+  - Chest
+  - MainPlayer
   layers:
   - Default
   - TransparentFX
