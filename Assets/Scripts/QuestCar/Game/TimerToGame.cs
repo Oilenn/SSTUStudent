@@ -15,6 +15,7 @@ public class TimerToGame : MonoBehaviour
     [SerializeField] GameObject _carMain;
     [SerializeField] GameObject _car;
 
+    SoundDrive _scriptOnDrive;
     CarController _sciptCarEnabled;
     camera _scriptCamera;
     Animator _cameraAnim;
@@ -25,6 +26,7 @@ public class TimerToGame : MonoBehaviour
     {
         _playTimer = gameObject.GetComponent<Animator>();
         _sciptCarEnabled = _carMain.GetComponent<CarController>();
+        _scriptOnDrive = _carMain.GetComponent<SoundDrive>();
         _carAnim = _car.GetComponent<Animator>();
         _cameraAnim = _mainCamera.GetComponent<Animator>();
         _scriptCamera = _mainCamera.GetComponent<camera>();
@@ -42,7 +44,9 @@ public class TimerToGame : MonoBehaviour
 
     void Drive()
     {
+        _scriptOnDrive.enabled = true;
         _sciptCarEnabled.enabled = true;
+
         _carAnim.enabled = true;
         _mainCamera.SetActive(false);
         _camera.SetActive(true);

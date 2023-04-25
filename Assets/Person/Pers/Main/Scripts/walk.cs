@@ -13,6 +13,12 @@ public class walk : MonoBehaviour
 
     //private float _rotationSpeed = 5110;
 
+
+    private void Start()
+    {
+        
+    }
+
     void Update()
     {
         if (Input.GetKey(KeyCode.W))
@@ -22,6 +28,7 @@ public class walk : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             com.transform.rotation = Quaternion.LookRotation(-cam.right);
+            
         }
         if (Input.GetKey(KeyCode.S))
         {

@@ -39,6 +39,7 @@ public class Cubik1 : MonoBehaviour
     Animator _animNPC;
     Animator _animPlayer;
 
+    SoundDrive _scriptOnDrive;
     CarController _scriptCar;
 
     arms _scriptArm;
@@ -57,6 +58,7 @@ public class Cubik1 : MonoBehaviour
         _animPlayer = _Player.GetComponent<Animator>();
 
         _scriptCar = _MainCar.GetComponent<CarController>();
+        _scriptOnDrive = _MainCar.GetComponent<SoundDrive>();
 
         _sciptPlayerEnabled1 = _Player.GetComponent<walk>();
         _sciptPlayerEnabled2 = _Player.GetComponent<playerGun>();
@@ -68,11 +70,6 @@ public class Cubik1 : MonoBehaviour
         _flag = false;
     }
 
-
-    void Update()
-    {
-
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -140,6 +137,7 @@ public class Cubik1 : MonoBehaviour
         _animPlayer.enabled = true;
 
         _scriptCar.enabled = false;
+        _scriptOnDrive.enabled = false;
         _sciptPlayerEnabled1.enabled = true;
         _sciptPlayerEnabled2.enabled = true;
         _scriptArm.enabled = true;
