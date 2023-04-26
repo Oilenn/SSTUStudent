@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class ToTalkStudent : MonoBehaviour
 {
+    [SerializeField] private Lesson _les;
     [SerializeField] public List<string> Phrases;
+    [SerializeField] public List<string> Choise;
 
     [SerializeField] private List<Vector3> _transforms;
+
     public bool HasEntered { get; private set; } //Зашёл ли игрок в область NPC
     public bool HasJustLeft { get; private set; } //Вышел ли игрок из области NPC некоторое время назад
 
@@ -16,6 +19,19 @@ public class ToTalkStudent : MonoBehaviour
     {
         HasJustLeft = false;
         HasEntered = false;
+    }
+
+    private void MakeChoice()
+    {
+
+    }
+
+    private void Update()
+    {
+        if (!_les.enabled)
+        {
+
+        }
     }
 
     public void MoveToNextPosition()

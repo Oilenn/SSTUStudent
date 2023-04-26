@@ -19,6 +19,9 @@ public class ToQuest : MonoBehaviour
 
     private float _fadeTime;
 
+    public bool IsLessonFinished { get; private set; }
+    public bool IsRacingFinished { get; private set; }
+
     IEnumerator AnimationTimer()
     {
         _fadeTime += 0.1f;
