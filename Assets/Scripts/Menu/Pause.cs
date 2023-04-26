@@ -40,6 +40,7 @@ public class Pause : MonoBehaviour
 
     public void PauseGame()
     {
+        Cursor.visible = true;
         Time.timeScale = 0f;
         _scriptCamera.enabled = false;
         _PausePanel.SetActive(true);
@@ -48,6 +49,7 @@ public class Pause : MonoBehaviour
 
     public void Resume()
     {
+        Cursor.visible = false;
         Time.timeScale = 1f;
         _PausePanel.SetActive(false);
         _Set.SetActive(false);

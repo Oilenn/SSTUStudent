@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Inpit.unity
-    guid: 886d774066fa9f5408cb498ab01e34de
+    path: Assets/Scenes/InpitPit.unity
+    guid: af87657d5f460304b926c65eff7fc2a9
   m_configObjects: {}

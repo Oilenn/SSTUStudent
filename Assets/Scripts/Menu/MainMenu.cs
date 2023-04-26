@@ -7,7 +7,21 @@ public class MainMenu : MonoBehaviour
 
     public GameObject _MainMenu;
     public GameObject _SetMenu;
+    public GameObject _GameMenu;
 
+    [Header ("For Start")]
+
+    [SerializeField] GameObject _camera;
+
+    int _countStart = 0;
+
+    camera _cameraScript;
+
+
+    private void Start()
+    {
+        _cameraScript = _camera.GetComponent<camera>();
+    }
 
     public void MainON()
     {
@@ -33,11 +47,26 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        _MainMenu.SetActive(false);
+        if (_countStart < 1)
+        {
 
-        _animCamera.enabled = true;
-        _animCamera.Play("MoveToPlayer");
+            _MainMenu.SetActive(false);
 
+            _animCamera.enabled = true;
+            _animCamera.Play("MoveToPlayer");
+            _countStart++;
+            Cursor.visible = false;
+        }
+
+        else
+        {
+            _MainMenu.SetActive(false);
+            _GameMenu.SetActive(true);
+            _cameraScript.enabled = true;
+            Time.timeScale = 1f;
+
+            Cursor.visible = false;
+        }
     }
 
 }

@@ -19,11 +19,14 @@ public class OnGame : MonoBehaviour
     arms _scriptLeft;
     arms _scriptRight;
 
+    AudioSource _steps;
+
     void Start()
     {
         _scriptCamera = gameObject.GetComponent<camera>();
         _animCamera = gameObject.GetComponent<Animator>();
 
+        _steps = _player.GetComponent<AudioSource>();
         _playerAnim = _player.GetComponent<Animator>();
 
         _scriptWalk = _player.GetComponent<walk>();
@@ -40,6 +43,8 @@ public class OnGame : MonoBehaviour
 
     void ScriptOn()
     {
+        _steps.enabled = true;
+
         _scriptCamera.enabled = true;
         _animCamera.enabled = false;
 
