@@ -5,7 +5,7 @@ using TMPro;
 
 public class MoveTeacher : MonoBehaviour
 {
-    [Header ("Doors")]
+    [Header("Doors")]
     [SerializeField] GameObject _door;
     [SerializeField] GameObject _lastDoor;
     [SerializeField] GameObject _lastDoor1;

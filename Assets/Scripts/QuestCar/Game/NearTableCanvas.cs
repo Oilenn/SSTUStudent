@@ -53,6 +53,7 @@ public class NearTableCanvas : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && flag)
         {
+            
             _step.enabled = false;
 
             _InputCanvas.SetActive(false);
@@ -66,6 +67,8 @@ public class NearTableCanvas : MonoBehaviour
             _sciptPlayerEnabled2.enabled = false;
             _scriptArm.enabled = false;
             _scriptArm2.enabled = false;
+
+            _Player.transform.position = new Vector3(-145.84f, 0.03000021f, 12.25f);
 
             gameObject.SetActive(false);
 

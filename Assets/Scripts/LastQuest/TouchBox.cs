@@ -7,8 +7,11 @@ public class TouchBox : MonoBehaviour
     public GameObject _doorLeft;
     public GameObject _doorRight;
     public GameObject _enterDoor;
+
     [SerializeField] GameObject _teacher;
     [SerializeField] GameObject _wordSupport;
+    [SerializeField] GameObject _betweenDoors;
+
     Animator _animTeach;
 
     // Start is called before the first frame update
@@ -25,6 +28,7 @@ public class TouchBox : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        _betweenDoors.SetActive(true);
         _wordSupport.SetActive(false);
         _animTeach.enabled = true;
         _doorLeft.transform.rotation = Quaternion.Euler(0f, -90f, 0f);
