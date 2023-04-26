@@ -8,7 +8,7 @@ public class LessonStarter : MonoBehaviour
 
     private void OnDestroy()
     {
-        ActiveQuest.StartLesson();
+        ActiveQuest.PlayerCame();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -23,10 +23,5 @@ public class LessonStarter : MonoBehaviour
     {
         ActiveQuest = transform.parent.gameObject.GetComponent<Lesson>();
         ActiveQuest.enabled = false;
-    }
-
-    void Update()
-    {
-        
     }
 }
