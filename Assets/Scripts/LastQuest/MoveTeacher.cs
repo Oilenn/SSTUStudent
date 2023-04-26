@@ -5,7 +5,12 @@ using TMPro;
 
 public class MoveTeacher : MonoBehaviour
 {
+    [Header ("Doors")]
     [SerializeField] GameObject _door;
+    [SerializeField] GameObject _lastDoor;
+    [SerializeField] GameObject _lastDoor1;
+    [SerializeField] GameObject _leftDoor;
+    [SerializeField] GameObject _rightDoor;
 
     [Header ("NPC Replic")]
     [SerializeField] GameObject _firstRep;
@@ -13,11 +18,13 @@ public class MoveTeacher : MonoBehaviour
     [SerializeField] GameObject _thirdRep;
     [SerializeField] GameObject _forthRep;
     [SerializeField] GameObject _fifthRep;
+    [SerializeField] GameObject _sixthRep;
 
     [Header("Player Replic")]
     [SerializeField] GameObject _MyFirstRep;
     [SerializeField] GameObject _MySecRep;
     [SerializeField] GameObject _MyThirdRep;
+    [SerializeField] GameObject _MyFourthRep;
 
     TMP_Text _text;
 
@@ -73,6 +80,12 @@ public class MoveTeacher : MonoBehaviour
         _fifthRep.SetActive(true);
     }
 
+    void Speak6()
+    {
+        _MyFourthRep.SetActive(false);
+        _sixthRep.SetActive(true);
+    }
+
     void MySpeak1()
     {
         _secondRep.SetActive(false);
@@ -89,5 +102,10 @@ public class MoveTeacher : MonoBehaviour
     {
         _forthRep.SetActive(false);
         _MyThirdRep.SetActive(true);
+        _leftDoor.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        _rightDoor.transform.rotation = Quaternion.Euler(0f,0f,0f);
+        _lastDoor.transform.rotation = Quaternion.Euler(0f, -180f, 0f);
+        _lastDoor1.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
     }
+
 }

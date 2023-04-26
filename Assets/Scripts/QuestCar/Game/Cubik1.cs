@@ -9,6 +9,7 @@ public class Cubik1 : MonoBehaviour
 {
     [SerializeField] GameObject _Canvas;
     [SerializeField] GameObject _wordSupport;
+    [SerializeField] GameObject _doorBox;
 
     [Header("GameIvent")]
     public GameObject _Cube;
@@ -39,6 +40,9 @@ public class Cubik1 : MonoBehaviour
     Animator _animNPC;
     Animator _animPlayer;
 
+    AudioSource _soundCar;
+    AudioSource _step;
+
     SoundDrive _scriptOnDrive;
     CarController _scriptCar;
 
@@ -65,6 +69,9 @@ public class Cubik1 : MonoBehaviour
 
         _scriptArm = _LeftArm.GetComponent<arms>();
         _scriptArm2 = _RightArm.GetComponent<arms>();
+
+        _soundCar = _MainCar.GetComponent<AudioSource>();
+        _step = _Player.GetComponent<AudioSource>();
 
         _Round = 1;
         _flag = false;
@@ -121,6 +128,9 @@ public class Cubik1 : MonoBehaviour
         _Canvas.SetActive(false);
         _wordSupport.SetActive(true);
 
+        _soundCar.enabled = false;
+        _step.enabled = true;
+
         Debug.Log(_flag);
         if (_flag)
         {
@@ -130,7 +140,7 @@ public class Cubik1 : MonoBehaviour
         else
         {
             _WinMain.SetActive(false);
-            _textSupport.text = " не переживай. В следущюий раз, я уверен, ты меня обыграешь!";
+            _textSupport.text = "Вы: не переживай. В следущюий раз, я уверен, ты меня обыграешь!";
         }
 
         _animNPC.enabled = false;
@@ -146,11 +156,13 @@ public class Cubik1 : MonoBehaviour
         _Camera.SetActive(false);
         _MainCamera.SetActive(true);
 
-        _MainCar.transform.position = new Vector3(-137.6552f, 1.4257f, 9.2735f);
+        _MainCar.transform.position = new Vector3(-138.2792f, 1.4257f, 9.2735f);
         _MainCar.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
 
-        _NpcCar.transform.position = new Vector3(-137.304f, 1.4257f, 9.2735f);
+        _NpcCar.transform.position = new Vector3(-137.926f, 1.4257f, 9.2735f);
         _NpcCar.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+
+        _doorBox.SetActive(true);
 
     }
 }

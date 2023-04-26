@@ -22,6 +22,8 @@ public class NearTableCanvas : MonoBehaviour
     Animator _animPlayer;
     Animator _animCamera;
 
+    AudioSource _step;
+
     camera _scriptCamera;
     arms _scriptArm;
     arms _scriptArm2;
@@ -34,6 +36,8 @@ public class NearTableCanvas : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _step = _Player.GetComponent<AudioSource>();
+
         _animPlayer = _Player.GetComponent<Animator>();
         _animCamera = _mainCamera.GetComponent<Animator>();
 
@@ -49,6 +53,8 @@ public class NearTableCanvas : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && flag)
         {
+            _step.enabled = false;
+
             _InputCanvas.SetActive(false);
 
             _animCamera.enabled = true;
