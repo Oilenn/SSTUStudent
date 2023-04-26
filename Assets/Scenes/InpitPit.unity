@@ -20703,7 +20703,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1084832502
 RectTransform:
   m_ObjectHideFlags: 0
@@ -39289,8 +39289,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _les: {fileID: 0}
-  ToLesson: []
-  ToRacing: []
+  ToLesson:
+  - "\u041D\u0438\u043A\u0438\u0442\u0430"
+  - "\u041B\u0430\u0434\u043D\u043E, \u043F\u043E\u0448\u043B\u0438 \u043D\u0430
+    \u043C\u0430\u0442\u0430\u043D... \u041D\u043E \u043F\u043E\u0441\u043B\u0435
+    \u0441\u0440\u0430\u0437\u0443 \u0432 107-\u0439!"
+  ToRacing:
+  - "\u041D\u0438\u043A\u0438\u0442\u0430"
+  - "\u0423\u0440\u0430! \u041F\u043E\u0448\u043B\u0438 \u043F\u043E\u0438\u0433\u0440\u0430\u0435\u043C
+    \u0432 \u043C\u0430\u0448\u0438\u043D\u043A\u0438!"
   Choise:
   - "\u041D\u0438\u043A\u0438\u0442\u0430"
   - "\u0421\u043B\u0443\u0448\u0430\u0439, \u043C\u043E\u0436\u0435\u0442 \u043D\u0443
