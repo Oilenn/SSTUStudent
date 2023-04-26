@@ -170,7 +170,7 @@ public class FirstQuest : MonoBehaviour
             }
             _lesson.enabled = false;
             _colliderOut.gameObject.SetActive(true);
-            _toQuest.enabled = true;
+            _toQuest.FinishLesson();
             this.enabled = false;
         }
 

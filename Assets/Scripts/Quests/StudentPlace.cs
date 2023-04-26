@@ -28,35 +28,38 @@ public class StudentPlace : MonoBehaviour
 
     private void Start()
     {
+        _mainPlayer = GameObject.FindGameObjectWithTag("MainPlayer").transform;
         _les = transform.parent.GetComponent<Lesson>();
+        _previousRotation = _toStandUp.rotation;
+        _previousPosition = _toStandUp.transform.position;
         HasExit = true;
         HasSat = false;
     }
 
-    private void ChangePreviousPosition()
+    private void MovePlayerUnderGround()
     {
-        _previousPosition = _toStandUp.transform.position;
-        _previousRotation = _toStandUp.transform.rotation;
+        _player.transform.position = new Vector3(-120, 0.65f);
     }
 
     private void SitDownPlayer()
     {
+        _player.transform.GetChild(0).GetComponent<walk>().enabled = false;
+        print("Sat down");
         HasSat = true;
         _playerSat.SetActive(true);
 
-        ChangePreviousPosition();
-        Destroy(_player);
+        MovePlayerUnderGround();
     }
 
     public void StandPlayerUp()
     {
+        _player.transform.GetChild(0).GetComponent<walk>().enabled = true;
+        print("Stand up");
         HasSat = false;
         _playerSat.SetActive(false);
 
-        _player = Instantiate(_playerPrefab);
-        _mainPlayer = GameObject.FindGameObjectWithTag("MainPlayer").transform;
-        _mainPlayer.transform.position = _previousPosition;
-        _mainPlayer.transform.rotation = _previousRotation;
+        _player.transform.position = _previousPosition;
+        _player.transform.rotation = _previousRotation;
     }
 
     //Игрок отходит от стола
@@ -64,7 +67,7 @@ public class StudentPlace : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if(_les.LessonStarted) HasExit = true;
+            if(_les.LessonStarted && !HasSat) HasExit = true;
         }
     }
 
@@ -90,7 +93,7 @@ public class StudentPlace : MonoBehaviour
                 _toSatInfo.SetActive(false);
             }
 
-            if (HasExit == false)
+            if (!HasExit)
             {
                 if (Input.GetKeyDown(KeyCode.F))
                 {
@@ -101,10 +104,12 @@ public class StudentPlace : MonoBehaviour
 
                     if (!_playerSat.activeSelf)
                     {
+                        print("sit");
                         SitDownPlayer();
                     }
                     else
                     {
+                        print("up");
                         StandPlayerUp();
                     }
                 }
