@@ -36,9 +36,4 @@ public class MathWoman : MonoBehaviour
         _animator = gameObject.GetComponent<Animator>();
         LookAtTable();
     }
-
-    void Update()
-    {
-        
-    }
 }
