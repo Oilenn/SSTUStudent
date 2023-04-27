@@ -9,7 +9,6 @@ public class StudentPlace : MonoBehaviour
     [Header("Player prefabs")]
     [SerializeField] private GameObject _player;//Нынешний игрок
     [SerializeField] private GameObject _playerSat;//Игрок севший
-    [SerializeField] private GameObject _playerPrefab;//Префаб игрока. Нынешнего игрока - удаляем, этого - ставим.
     [SerializeField] private Transform _toStandUp;//Позиция где будет появлятся игрок, когда встаёт
 
     [Header("UI Elements")]
@@ -43,10 +42,10 @@ public class StudentPlace : MonoBehaviour
 
     private void SitDownPlayer()
     {
-        _player.transform.GetChild(0).GetComponent<walk>().enabled = false;
-        print("Sat down");
+        //_player.transform.GetChild(0).GetComponent<walk>().enabled = false;
         HasSat = true;
         _playerSat.SetActive(true);
+        print("Sat down");
         Cursor.visible = true;
 
         MovePlayerUnderGround();
@@ -54,10 +53,10 @@ public class StudentPlace : MonoBehaviour
 
     public void StandPlayerUp()
     {
-        _player.transform.GetChild(0).GetComponent<walk>().enabled = true;
-        print("Stand up");
+        //_player.transform.GetChild(0).GetComponent<walk>().enabled = true;
         HasSat = false;
         _playerSat.SetActive(false);
+        print("Stand up");
         Cursor.visible = false;
 
         _player.transform.position = _previousPosition;

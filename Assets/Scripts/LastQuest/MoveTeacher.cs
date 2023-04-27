@@ -6,6 +6,7 @@ using TMPro;
 public class MoveTeacher : MonoBehaviour
 {
     [SerializeField] GameObject _boxEnd;
+    [SerializeField] GameObject _activeEnter;
 
     [Header("Doors")]
     [SerializeField] GameObject _door;
@@ -78,6 +79,7 @@ public class MoveTeacher : MonoBehaviour
 
     void Speak5()
     {
+        _activeEnter.SetActive(true);
         _boxEnd.SetActive(true);
         _MyThirdRep.SetActive(false);
         _fifthRep.SetActive(true);

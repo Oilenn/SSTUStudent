@@ -30,17 +30,20 @@ public class ToQuest : MonoBehaviour
     [SerializeField] private GameObject _lessonDoor;
     [SerializeField] private GameObject _racingDoor;
 
-    [SerializeField] private RaceQuester _raceQuester;
+    [SerializeField] private GameObject _raceStarter;
+    [SerializeField] private GameObject _runStarter;
+    [SerializeField] private GameObject _raceExiter;
     private float _fadeTime = 0;
 
     public bool IsLessonFinished { get; private set; }
     public bool IsRacingFinished { get; private set; }
     public bool IsChoiceSetting { get; private set; }
+    public bool IsRunStarted { get; private set; }
+    public bool IsRaceEnded { get; set; }
 
     IEnumerator AnimationTimer()
     {
         _fadeTime += 0.1f;
-        print(_fadeTime);
         yield return new WaitForSeconds(0.1f);
         StartCoroutine(AnimationTimer());
     }
@@ -100,16 +103,20 @@ public class ToQuest : MonoBehaviour
     {
         _lessonDoor.SetActive(true);
         _racingDoor.SetActive(false);
-        _nikita.MoveToRacePosition();
+        if (!IsLessonFinished || !IsRaceEnded)
+        {
+            _nikita.MoveToRacePosition();
+        }
     }
 
     private void ComeToLesson()
     {
-        print(_fadeTime);
         _lessonDoor.SetActive(false);
-        _racingDoor.SetActive(true);
         _firstQuest.enabled = true;
-        _nikita.MoveToLessonPosition();
+        if (!IsLessonFinished || !IsRaceEnded)
+        {
+            _nikita.MoveToLessonPosition();
+        }
     }
 
     private void PlayFadedDialog(List<string> phrases)
@@ -165,17 +172,34 @@ public class ToQuest : MonoBehaviour
             StopFade();
         }
 
+        if (IsRaceEnded && !IsRacingFinished)
+        {
+            ChangeTask("Поговорите с Никитой");
+            IsRacingFinished = true;
+        }
+
+        if(IsRaceEnded && IsLessonFinished)
+        {
+            _runStarter.SetActive(true);
+        }
+        if (IsRaceEnded)
+        {
+            _raceStarter.SetActive(false);
+        }
+
         if (_nikita.HasEntered)
         {
-            if (IsRacingFinished)
+            if (IsRaceEnded && _nikita.IsInRacingRoom)
             {
                 if (IsLessonFinished)
                 {
                     PlayFadedDialog(_nikita.ToHome);
+                    _raceExiter.SetActive(true);
                 }
                 else
                 {
                     PlayFadedDialog(_nikita.ToLesson);
+                    _raceExiter.SetActive(true);
                 }
             }
             else if (IsLessonFinished)
@@ -193,9 +217,10 @@ public class ToQuest : MonoBehaviour
                             _dialogManager.PlayDialogOnce(_nikita.ToPlay);
                             _nikita.IsTalking = true;
                         }
-                        else if (_nikita.IsTalking)
+                        else if (_nikita.IsTalking && !IsRaceEnded)
                         {
                             _nikita.IsTalking = false;
+                            _raceStarter.SetActive(true);
                             ChangeTask("Встаньте за доску и начните играть.");
                         }
                     }
@@ -204,6 +229,24 @@ public class ToQuest : MonoBehaviour
             //Когда игрок только зашёл в игру
             else if (!IsLessonFinished && !IsRacingFinished)
             {
+                if (_nikita.IsInRacingRoom)
+                {
+                    if (!_dialogManager.IsWindowOn())
+                    {
+                        if (Input.GetKeyDown(KeyCode.E))
+                        {
+                            _dialogManager.PlayDialogOnce(_nikita.ToPlay);
+                            _nikita.IsTalking = true;
+                        }
+                        else if (_nikita.IsTalking && !IsRaceEnded)
+                        {
+                            ChangeTask("Встаньте за доску и начните играть.");
+                            _raceStarter.SetActive(true);
+                            _nikita.IsTalking = false;
+                        }
+                    }
+                }
+
                 if (!_dialogManager.IsWindowOn())
                 {
                     //При нажатии запускаем диалог
@@ -218,22 +261,6 @@ public class ToQuest : MonoBehaviour
                         IsChoiceSetting = true;
                         _nikita.IsTalking = false;
                         _choice.gameObject.SetActive(true);
-                    }
-                }
-            }
-            if (_nikita.IsInRacingRoom)
-            {
-                if (!_dialogManager.IsWindowOn())
-                {
-                    if (Input.GetKeyDown(KeyCode.E))
-                    {
-                        _dialogManager.PlayDialogOnce(_nikita.ToPlay);
-                        _nikita.IsTalking = true;
-                    }
-                    else if (_nikita.IsTalking)
-                    {
-                        ChangeTask("Встаньте за доску и начните играть.");
-                        _nikita.IsTalking = false;
                     }
                 }
             }
@@ -252,8 +279,16 @@ public class ToQuest : MonoBehaviour
 
         if (_colliderLessonOut.HasPlayerOut && !IsLessonFinished)
         {
-            ChangeTask("Поговорите с Никитой");
-            IsLessonFinished = true;
+            if (!IsRaceEnded)
+            {
+                ChangeTask("Поговорите с Никитой");
+                IsLessonFinished = true;
+            }
+            else
+            {
+                ChangeTask("");
+                IsLessonFinished = true;
+            }
         }
     }
 }

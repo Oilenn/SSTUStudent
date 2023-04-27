@@ -12,6 +12,8 @@ public class TouchBox : MonoBehaviour
     [SerializeField] GameObject _wordSupport;
     [SerializeField] GameObject _betweenDoors;
 
+    [SerializeField] ToQuest _toQuest;
+
     Animator _animTeach;
 
     // Start is called before the first frame update
@@ -35,6 +37,6 @@ public class TouchBox : MonoBehaviour
         _doorRight.transform.rotation = Quaternion.Euler(0f, 90f, 0f);
         _enterDoor.transform.rotation = Quaternion.Euler(0f,0f,0f);
         gameObject.SetActive(false);
-
+        _toQuest.enabled = false;
     }
 }

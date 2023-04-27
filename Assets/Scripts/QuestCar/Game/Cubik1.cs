@@ -30,6 +30,7 @@ public class Cubik1 : MonoBehaviour
     [SerializeField] GameObject _MainCamera;
     [SerializeField] GameObject _Camera;
 
+    [SerializeField] ToQuest _toQuest;
 
     TMP_Text _text;
     TMP_Text _textSupport;
@@ -135,12 +136,12 @@ public class Cubik1 : MonoBehaviour
         if (_flag)
         {
             _WinNpc.SetActive(false);
-            _textSupport.text = "Никита: Дружище, не переживай. В следущюий раз, я уверен, ты меня обыграешь!";
+            _textSupport.text = "";
         }
         else
         {
             _WinMain.SetActive(false);
-            _textSupport.text = "Вы: Дружище, не переживай. В следущюий раз, я уверен, ты меня обыграешь!";
+            _textSupport.text = "";
         }
 
         _animNPC.enabled = false;
@@ -162,7 +163,10 @@ public class Cubik1 : MonoBehaviour
         _NpcCar.transform.position = new Vector3(-137.926f, 1.4257f, 9.2735f);
         _NpcCar.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
 
-        _doorBox.SetActive(true);
-
+        if (_toQuest.IsLessonFinished && _toQuest.IsRacingFinished)
+        {
+            _doorBox.SetActive(true);
+        }
+        _toQuest.IsRaceEnded = true;
     }
 }
