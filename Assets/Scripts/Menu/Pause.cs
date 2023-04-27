@@ -13,14 +13,17 @@ public class Pause : MonoBehaviour
     public GameObject _startPanel;
     public GameObject _Set;
 
+    [SerializeField] GameObject _player;
     [SerializeField] GameObject _mainCamera;
 
     camera _scriptCamera;
+    AudioSource _stepAudio;
 
     // Update is called once per frame
     private void Start()
     {
         _scriptCamera = _mainCamera.GetComponent<camera>();
+        _stepAudio = _player.GetComponent<AudioSource>();
     }
 
     void Update()
@@ -42,6 +45,7 @@ public class Pause : MonoBehaviour
     {
         Cursor.visible = true;
         Time.timeScale = 0f;
+        _stepAudio.enabled = false;
         _scriptCamera.enabled = false;
         _PausePanel.SetActive(true);
         _IsPaused = true;
@@ -72,6 +76,7 @@ public class Pause : MonoBehaviour
         _mainCamera.transform.rotation = Quaternion.Euler(6.052f, 0.134f, 0.024f);
         _startPanel.SetActive(true);
         _IsPaused = false;
+        Backing._place = false;
         _GameMenu.SetActive(false);
     }
 }

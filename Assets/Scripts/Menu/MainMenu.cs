@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
     public GameObject _MainMenu;
     public GameObject _SetMenu;
     public GameObject _GameMenu;
+    public GameObject _Esc;
 
     [Header ("For Start")]
 
@@ -56,6 +57,8 @@ public class MainMenu : MonoBehaviour
             _animCamera.Play("MoveToPlayer");
             _countStart++;
             Cursor.visible = false;
+
+            Backing._place = true;
         }
 
         else
@@ -63,7 +66,9 @@ public class MainMenu : MonoBehaviour
             _MainMenu.SetActive(false);
             _GameMenu.SetActive(true);
             _cameraScript.enabled = true;
+            _Esc.SetActive(false);
             Time.timeScale = 1f;
+            Backing._place = true;
 
             Cursor.visible = false;
         }

@@ -68,7 +68,7 @@ public class NearTableCanvas : MonoBehaviour
             _scriptArm.enabled = false;
             _scriptArm2.enabled = false;
 
-            _Player.transform.position = new Vector3(-145.84f, 0.03000021f, 12.25f);
+            _Player.transform.position = new Vector3(-181.52f, 0.37f, 1.26f);
 
             gameObject.SetActive(false);
 

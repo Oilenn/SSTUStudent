@@ -135,12 +135,12 @@ public class Cubik1 : MonoBehaviour
         if (_flag)
         {
             _WinNpc.SetActive(false);
-            _textSupport.text = " не переживай. В следущюий раз, я уверен, ты меня обыграешь!";
+            _textSupport.text = "Никита: Дружище, не переживай. В следущюий раз, я уверен, ты меня обыграешь!";
         }
         else
         {
             _WinMain.SetActive(false);
-            _textSupport.text = "Вы: не переживай. В следущюий раз, я уверен, ты меня обыграешь!";
+            _textSupport.text = "Вы: Дружище, не переживай. В следущюий раз, я уверен, ты меня обыграешь!";
         }
 
         _animNPC.enabled = false;

@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class GameOver : MonoBehaviour
 {
+    [SerializeField] GameObject _lastRep;
+    [SerializeField] GameObject _Esc;
     [SerializeField] GameObject _endScreen;
     [SerializeField] GameObject _Player;
+    [SerializeField] GameObject _Teacher;
     [SerializeField] GameObject _leftArm;
     [SerializeField] GameObject _rightArm;
     [SerializeField] GameObject _camera;
@@ -15,6 +18,7 @@ public class GameOver : MonoBehaviour
     arms _scriptRightArm;
     camera _cameraScript;
     Animator _animPlayer;
+    Animator _animTeach;
     AudioSource _steps;
 
     // Start is called before the first frame update
@@ -25,6 +29,8 @@ public class GameOver : MonoBehaviour
         _scriptRightArm = _rightArm.GetComponent<arms>();
         _cameraScript = _camera.GetComponent<camera>();
         _steps = _Player.GetComponent<AudioSource>();
+        _animPlayer = _Player.GetComponent<Animator>();
+        _animTeach = _Teacher.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -37,6 +43,7 @@ public class GameOver : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            _endScreen.SetActive(true);
             _animPlayer.enabled = false;
             _endScreen.SetActive(true);
             _scriptWalk.enabled = false;
@@ -45,6 +52,9 @@ public class GameOver : MonoBehaviour
             _cameraScript.enabled = false;
             _steps.enabled = false;
             gameObject.SetActive(false);
+            _lastRep.SetActive(false);
+            _Esc.SetActive(false);
+            _animTeach.enabled = false;
         }
 
     }

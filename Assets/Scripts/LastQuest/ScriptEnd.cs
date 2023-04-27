@@ -13,6 +13,7 @@ public class ScriptEnd : MonoBehaviour
         if(Input.GetKey(KeyCode.Return))
         {
             SceneManager.LoadScene(0,LoadSceneMode.Single);
+            Cursor.visible = true;
         }
     }
 }

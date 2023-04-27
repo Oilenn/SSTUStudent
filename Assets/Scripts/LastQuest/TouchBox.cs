@@ -33,7 +33,7 @@ public class TouchBox : MonoBehaviour
         _animTeach.enabled = true;
         _doorLeft.transform.rotation = Quaternion.Euler(0f, -90f, 0f);
         _doorRight.transform.rotation = Quaternion.Euler(0f, 90f, 0f);
-        _enterDoor.transform.rotation = Quaternion.Euler(0f,90f,0f);
+        _enterDoor.transform.rotation = Quaternion.Euler(0f,0f,0f);
         gameObject.SetActive(false);
 
     }

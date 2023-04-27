@@ -55,7 +55,7 @@ public class MoveTeacher : MonoBehaviour
     void Speak1()
     {
         _firstRep.SetActive(true);
-        _text.text = "постой!";
+        _text.text = "Алексей Сергеевич: Ученик, постой!";
     }
 
     void Speak2()

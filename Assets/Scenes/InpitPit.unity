@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17882715, g: 0.21811657, b: 0.27239072, a: 1}
+  m_IndirectSpecularColor: {r: 0.17882666, g: 0.21811607, b: 0.2723898, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1986,7 +1986,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &96921037
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4523,7 +4523,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0412\u044B: *\u041E \u043D\u0435\u0442, \u0433\u043B\u0430\u0432\u043D\u044B\u0439
+  m_text: "*\u041E \u043D\u0435\u0442, \u0433\u043B\u0430\u0432\u043D\u044B\u0439
     \u0432\u0445\u043E\u0434 \u0437\u0430\u043A\u0440\u044B\u0442. \u041D\u0443\u0436\u043D\u043E
     \u0441\u043A\u043E\u0440\u0435\u0435 \u0431\u0435\u0436\u0430\u0442\u044C \u043A\u043E
     \u0432\u0442\u043E\u0440\u043E\u043C\u0443.*"
@@ -5350,7 +5350,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1808847404}
+      - m_Target: {fileID: 962801209}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -7443,7 +7443,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0424\u0443\u0445, \u044F \u0441\u043C\u043E\u0433 \u043F\u043E\u0431\u0435\u0434\u0438\u0442\u044C!"
+  m_text: "\u041D\u0438\u043A\u0438\u0442\u0430: \u0424\u0443\u0445, \u044F \u0441\u043C\u043E\u0433
+    \u043F\u043E\u0431\u0435\u0434\u0438\u0442\u044C!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10903,8 +10904,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0424\u0443\u0445, \u0442\u044F\u0436\u0435\u043B\u043E \u043C\u043D\u0435
-    \u0434\u043E\u0441\u0442\u0430\u043B\u0430\u0441\u044C \u043F\u043E\u0431\u0435\u0434\u0430!"
+  m_text: "\u0412\u044B: \u0424\u0443\u0445, \u0442\u044F\u0436\u0435\u043B\u043E
+    \u043C\u043D\u0435 \u0434\u043E\u0441\u0442\u0430\u043B\u0430\u0441\u044C \u043F\u043E\u0431\u0435\u0434\u0430!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -11044,8 +11045,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041E \u043D\u0435\u0442, \u0443 \u043C\u0435\u043D\u044F \u0432\u044B\u043B\u0435\u0442\u0435\u043B\u043E
-    \u043A\u043E\u043B\u0435\u0441\u043E"
+  m_text: "\u041D\u0438\u043A\u0438\u0442\u0430: \u041E \u043D\u0435\u0442, \u0443
+    \u043C\u0435\u043D\u044F \u0432\u044B\u043B\u0435\u0442\u0435\u043B\u043E \u043A\u043E\u043B\u0435\u0441\u043E"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -12829,7 +12830,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0410 \u044F \u043C\u043E\u0433\u0443 \u0441\u0434\u0435\u043B\u0430\u0442\u044C
+  m_text: "\u0412\u044B: \u0410 \u044F \u043C\u043E\u0433\u0443 \u0441\u0434\u0435\u043B\u0430\u0442\u044C
     \u044D\u0442\u043E \u0437\u0430\u0432\u0442\u0440\u0430? \u041C\u043D\u0435 \u0441\u0435\u0439\u0447\u0430\u0441
     \u043D\u0443\u0436\u043D\u043E \u0443\u0435\u0437\u0436\u0430\u0442\u044C"
   m_isRightToLeft: 0
@@ -18279,6 +18280,7 @@ MonoBehaviour:
   _MainMenu: {fileID: 1220798916}
   _SetMenu: {fileID: 0}
   _GameMenu: {fileID: 1072852161}
+  _Esc: {fileID: 2033441786}
   _camera: {fileID: 131822722}
 --- !u!224 &656040347 stripped
 RectTransform:
@@ -22988,7 +22990,8 @@ MonoBehaviour:
   _PausePanel: {fileID: 2033441786}
   _GameMenu: {fileID: 1072852161}
   _startPanel: {fileID: 1220798916}
-  _Set: {fileID: 1808847404}
+  _Set: {fileID: 962801209}
+  _player: {fileID: 1170961319}
   _mainCamera: {fileID: 131822722}
 --- !u!1 &853932698
 GameObject:
@@ -23048,8 +23051,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0418\u0437\u0432\u0438\u043D\u0438\u0442\u0435, \u043D\u043E \u043C\u043D\u0435
-    \u043D\u0443\u0436\u043D\u043E \u0441\u0440\u043E\u0447\u043D\u043E \u0443\u0435\u0437\u0436\u0430\u0442\u044C"
+  m_text: "\u0412\u044B: \u0418\u0437\u0432\u0438\u043D\u0438\u0442\u0435, \u043D\u043E
+    \u043C\u043D\u0435 \u043D\u0443\u0436\u043D\u043E \u0441\u0440\u043E\u0447\u043D\u043E
+    \u0443\u0435\u0437\u0436\u0430\u0442\u044C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -28393,7 +28397,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1042554010
 RectTransform:
   m_ObjectHideFlags: 0
@@ -31491,7 +31495,7 @@ AudioSource:
   m_GameObject: {fileID: 1170961319}
   m_Enabled: 0
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 8953715363651458026, guid: 79cc80889393968429ddd3987c218a9d, type: 2}
   m_audioClip: {fileID: 8300000, guid: 65afed1b543b1a84598f6c9506e7966c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -35069,8 +35073,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041D\u0443\u0436\u043D\u043E \u0441\u043A\u043E\u0440\u0435\u0435 \u043D\u0430\u0439\u0442\u0438
-    \u043D\u043E\u0432\u043E\u0435 \u0438 \u043F\u043E\u0441\u0442\u0430\u0432\u0438\u0442\u044C
+  m_text: "\u041D\u0438\u043A\u0438\u0442\u0430: \u041D\u0443\u0436\u043D\u043E \u0441\u043A\u043E\u0440\u0435\u0435
+    \u043D\u0430\u0439\u0442\u0438 \u043D\u043E\u0432\u043E\u0435 \u0438 \u043F\u043E\u0441\u0442\u0430\u0432\u0438\u0442\u044C
     \u0435\u0433\u043E."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -36451,9 +36455,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041D\u0430\u043A\u043E\u043D\u0435\u0446-\u0442\u043E \u044F \u043F\u043E\u0447\u0438\u043D\u0438\u043B.
-    \u0414\u0430\u0432\u0430\u0439 \u043C\u0430\u0448\u0438\u043D\u0430, \u0433\u0430\u0437\u0443,
-    \u0433\u0430\u0437\u0443, \u0433\u0430\u0437\u0443!"
+  m_text: "\u041D\u0438\u043A\u0438\u0442\u0430: \u041D\u0430\u043A\u043E\u043D\u0435\u0446-\u0442\u043E
+    \u044F \u043F\u043E\u0447\u0438\u043D\u0438\u043B. \u0414\u0430\u0432\u0430\u0439
+    \u043C\u0430\u0448\u0438\u043D\u0430, \u0433\u0430\u0437\u0443, \u0433\u0430\u0437\u0443,
+    \u0433\u0430\u0437\u0443!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -47055,8 +47060,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eeb1c798f168c64d8f63abdbdaaa2b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _lastRep: {fileID: 916657401}
+  _Esc: {fileID: 1072852161}
   _endScreen: {fileID: 133945998}
   _Player: {fileID: 1170961319}
+  _Teacher: {fileID: 0}
   _leftArm: {fileID: 2112851747}
   _rightArm: {fileID: 1998874367}
   _camera: {fileID: 131822722}
@@ -51328,9 +51336,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0418\u0437\u0432\u0438\u043D\u0438\u0442\u0435,  \u044F \u043E\u043F\u043E\u0437\u0434\u0430\u043B
-    \u0438 \u0431\u043E\u044F\u043B\u0441\u044F \u0437\u0430\u0439\u0442\u0438 \u043D\u0430
-    \u043F\u0430\u0440\u0443.  "
+  m_text: "\u0412\u044B: \u0418\u0437\u0432\u0438\u043D\u0438\u0442\u0435,  \u044F
+    \u043E\u043F\u043E\u0437\u0434\u0430\u043B \u0438 \u0431\u043E\u044F\u043B\u0441\u044F
+    \u0437\u0430\u0439\u0442\u0438 \u043D\u0430 \u043F\u0430\u0440\u0443.  "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -53293,8 +53301,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffa802a1cd15b934eba265769e7faa0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _Esc: {fileID: 1072852161}
   _endScreen: {fileID: 1921687051}
   _Player: {fileID: 1170961319}
+  _Teacher: {fileID: 783120499}
   _leftArm: {fileID: 2112851747}
   _rightArm: {fileID: 1998874367}
   _camera: {fileID: 131822722}
@@ -53707,6 +53717,7 @@ GameObject:
   - component: {fileID: 2051504578}
   - component: {fileID: 2051504577}
   - component: {fileID: 2051504576}
+  - component: {fileID: 2051504579}
   m_Layer: 0
   m_Name: Back
   m_TagString: Untagged
@@ -53779,22 +53790,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 962801209}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 654588501}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 2051504579}
+        m_TargetAssemblyTypeName: Backing, Assembly-CSharp
+        m_MethodName: ComeBack
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -53841,6 +53840,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2051504574}
   m_CullTransparentMesh: 1
+--- !u!114 &2051504579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051504574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ac5a69325d69b438ff6b532699bb2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Esc: {fileID: 2033441786}
+  _startPanel: {fileID: 654588501}
+  _Set: {fileID: 962801209}
 --- !u!1001 &2055303745
 PrefabInstance:
   m_ObjectHideFlags: 0
