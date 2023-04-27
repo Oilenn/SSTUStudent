@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class NearTableCanvas : MonoBehaviour
 {
+    public static bool _inGameTable = false;
 
     [Header ("Cameras")]
     [SerializeField] GameObject _mainCamera;
@@ -53,7 +54,8 @@ public class NearTableCanvas : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && flag)
         {
-            
+            _inGameTable = true;
+
             _step.enabled = false;
 
             _InputCanvas.SetActive(false);
@@ -67,8 +69,6 @@ public class NearTableCanvas : MonoBehaviour
             _sciptPlayerEnabled2.enabled = false;
             _scriptArm.enabled = false;
             _scriptArm2.enabled = false;
-
-            _Player.transform.position = new Vector3(-181.52f, 0.37f, 1.26f);
 
             gameObject.SetActive(false);
 

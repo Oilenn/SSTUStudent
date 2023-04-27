@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class OnGame : MonoBehaviour
 {
+
     public GameObject _gameStarter;
+    public GameObject _helpInfo;
+    public GameObject _aimCan;
+    public GameObject _talkNik;
     [SerializeField] GameObject _door;
     [SerializeField] camera _scriptCamera;
     [SerializeField] GameObject _player;
     [SerializeField] GameObject _LeftArm;
     [SerializeField] GameObject _RightArm;
     [SerializeField] GameObject _GameMenu;
+
 
     Animator _animCamera;
     Animator _playerAnim;
@@ -60,5 +65,14 @@ public class OnGame : MonoBehaviour
         _door.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
 
         _GameMenu.SetActive(true);
+        _helpInfo.SetActive(true);
+        _aimCan.SetActive(true);
+        _talkNik.SetActive(true);
+        Invoke("HelpOff", 4f);
+    }
+
+    void HelpOff()
+    {
+        _helpInfo.SetActive(false);
     }
 }

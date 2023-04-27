@@ -9,6 +9,9 @@ public class MainMenu : MonoBehaviour
     public GameObject _SetMenu;
     public GameObject _GameMenu;
     public GameObject _Esc;
+    public GameObject _player;
+    public GameObject _Aim;
+    public GameObject _Aim2;
 
     [Header ("For Start")]
 
@@ -16,12 +19,14 @@ public class MainMenu : MonoBehaviour
 
     int _countStart = 0;
 
+    AudioSource _steps;
     camera _cameraScript;
 
 
     private void Start()
     {
         _cameraScript = _camera.GetComponent<camera>();
+        _steps = _player.GetComponent<AudioSource>();
     }
 
     public void MainON()
@@ -63,6 +68,9 @@ public class MainMenu : MonoBehaviour
 
         else
         {
+            _Aim.SetActive(true);
+            _Aim2.SetActive(true);
+            _steps.enabled = true;
             _MainMenu.SetActive(false);
             _GameMenu.SetActive(true);
             _cameraScript.enabled = true;
