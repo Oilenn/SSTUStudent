@@ -40,7 +40,7 @@ public class ToQuest : MonoBehaviour
     public bool IsChoiceSetting { get; private set; }
     public bool IsRunStarted { get; private set; }
     public bool IsRaceEnded { get; set; }
-
+    public bool IsRaceWait { get; set; }
     IEnumerator AnimationTimer()
     {
         _fadeTime += 0.1f;
@@ -206,7 +206,11 @@ public class ToQuest : MonoBehaviour
             {
                 if (!_nikita.IsInRacingRoom)
                 {
-                    PlayFadedDialog(_nikita.ToRacing);
+                    if(_firstQuest.IsGoodEnding) PlayFadedDialog(_nikita.ToRacing);
+                    else
+                    {
+                        PlayFadedDialog(_nikita.ToRacingBad);
+                    }
                 }
                 else
                 {
@@ -220,6 +224,7 @@ public class ToQuest : MonoBehaviour
                         else if (_nikita.IsTalking && !IsRaceEnded)
                         {
                             _nikita.IsTalking = false;
+                            IsRaceWait = true;
                             _raceStarter.SetActive(true);
                             ChangeTask("Встаньте за доску и начните играть.");
                         }
@@ -238,9 +243,10 @@ public class ToQuest : MonoBehaviour
                             _dialogManager.PlayDialogOnce(_nikita.ToPlay);
                             _nikita.IsTalking = true;
                         }
-                        else if (_nikita.IsTalking && !IsRaceEnded)
+                        else if (_nikita.IsTalking && !IsRaceEnded && !IsRaceWait)
                         {
                             ChangeTask("Встаньте за доску и начните играть.");
+                            IsRaceWait = true;
                             _raceStarter.SetActive(true);
                             _nikita.IsTalking = false;
                         }

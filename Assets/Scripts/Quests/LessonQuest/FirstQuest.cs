@@ -12,10 +12,6 @@ public class FirstQuest : MonoBehaviour
     [SerializeField] private List<string> Warning = new List<string>();
     [SerializeField] private List<string> EndOfLesson = new List<string>();
     [SerializeField] private List<string> BadEndOfLesson = new List<string>();
-    [Header("Phrases for work result")]
-    [SerializeField] private List<string> WellDoneWork = new List<string>();
-    [SerializeField] private List<string> AverageWork = new List<string>();
-    [SerializeField] private List<string> BadWork = new List<string>();
 
     [Header("Targets")]
     [SerializeField] private GameObject _targetToCabinet;
@@ -34,6 +30,8 @@ public class FirstQuest : MonoBehaviour
     private Lesson _lesson;
 
     private StudentPlace _studentPlace;//Триггер рабочего места игрока(парта)
+
+    public bool IsGoodEnding { get; private set; }
 
     private bool _hasWorkOpened;//Открыта ли работа игрока
     private bool _hasWalkedOut;//Вышел ли игрок из кабинета
@@ -144,10 +142,12 @@ public class FirstQuest : MonoBehaviour
             if (!_lesson.IsMathWomanWait && !_lesson.HasFind)
             {
                 _dialogManager.PlayDialog(EndOfLesson);
+                IsGoodEnding = true;
                 _studentPlace.StandPlayerUp();
             }
             else
             {
+                IsGoodEnding = false;
                 _dialogManager.PlayDialog(BadEndOfLesson);
             }
 

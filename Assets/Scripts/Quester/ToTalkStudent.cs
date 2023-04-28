@@ -9,6 +9,7 @@ public class ToTalkStudent : MonoBehaviour
     [SerializeField] public List<string> Choise;
     [SerializeField] public List<string> ToPlay;
     [SerializeField] public List<string> ToHome;
+    [SerializeField] public List<string> ToRacingBad;
 
     [SerializeField] private Vector3 _racePosition;
     [SerializeField] private Vector3 _lessonPosition;
@@ -27,28 +28,22 @@ public class ToTalkStudent : MonoBehaviour
         HasEntered = false;
     }
 
-    private void NormalizeRotation()
-    {
-        transform.rotation = new Quaternion(0, 0, 0, 0);
-    }
-
     public void MoveToLessonPosition()
     {
-        NormalizeRotation();
         IsInRacingRoom = false;
         transform.position = _lessonPosition;
     }
 
     public void MoveToRacePosition()
     {
-        NormalizeRotation();
+        transform.rotation = Quaternion.Euler(0, -180, 0);
         IsInRacingRoom = true;
         transform.position = _racePosition;
     }
 
     public void MoveToWait()
     {
-        NormalizeRotation();
+        transform.rotation = Quaternion.Euler(0, 90, 0);
         IsInRacingRoom = false;
         transform.position = _waitPosition;
     }

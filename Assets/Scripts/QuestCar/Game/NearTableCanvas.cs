@@ -58,8 +58,6 @@ public class NearTableCanvas : MonoBehaviour
 
             _step.enabled = false;
 
-            _InputCanvas.SetActive(false);
-
             _animCamera.enabled = true;
             _animCamera.Play("MoveToGame");
             _animPlayer.enabled = false;
@@ -71,13 +69,16 @@ public class NearTableCanvas : MonoBehaviour
             _scriptArm2.enabled = false;
 
             gameObject.SetActive(false);
-
         }
+    }
+
+    private void OnDisable()
+    {
+        _InputCanvas.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        
         if (other.tag == "Player")
         {
             flag = true;
