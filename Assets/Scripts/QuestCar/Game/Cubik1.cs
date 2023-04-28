@@ -125,6 +125,7 @@ public class Cubik1 : MonoBehaviour
 
     void GamepPlayOn()
     {
+        Pause._InGame = false;
 
         _Canvas.SetActive(false);
         _wordSupport.SetActive(true);
