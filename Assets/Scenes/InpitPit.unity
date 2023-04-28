@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17882715, g: 0.21811657, b: 0.27239072, a: 1}
+  m_IndirectSpecularColor: {r: 0.17882666, g: 0.21811607, b: 0.2723898, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -19072,6 +19072,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animCamera: {fileID: 2139642616}
+  _mainCamera: {fileID: 131822722}
+  _gameCamera: {fileID: 211834432}
+  _carMain: {fileID: 2101481903}
+  _car: {fileID: 1716544139}
+  _pause: {fileID: 850519709}
   _MainMenu: {fileID: 1220798916}
   _SetMenu: {fileID: 0}
   _GameMenu: {fileID: 1072852161}
@@ -24017,8 +24022,11 @@ MonoBehaviour:
   _Aim2: {fileID: 3856198774965016003}
   _player: {fileID: 1170961319}
   _mainCamera: {fileID: 131822722}
+  _gameCamera: {fileID: 211834432}
   _carMain: {fileID: 2101481903}
   _car: {fileID: 1716544139}
+  _graphic: {fileID: 1773705259}
+  _music: {fileID: 96921036}
 --- !u!1 &853932698
 GameObject:
   m_ObjectHideFlags: 0
@@ -51816,7 +51824,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 850519709}
         m_TargetAssemblyTypeName: Pause, Assembly-CSharp
-        m_MethodName: Resume
+        m_MethodName: WhatResume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -57415,6 +57423,7 @@ MonoBehaviour:
   _LeftArm: {fileID: 2112851747}
   _RightArm: {fileID: 1998874367}
   _GameMenu: {fileID: 1072852161}
+  _cube: {fileID: 353034877}
 --- !u!1001 &2141541412
 PrefabInstance:
   m_ObjectHideFlags: 0

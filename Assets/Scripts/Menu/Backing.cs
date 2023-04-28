@@ -16,6 +16,7 @@ public class Backing : MonoBehaviour
     // Update is called once per frame
     public void ComeBack()
     {
+        Debug.Log(_place);
         if (_place)
         {
             _Esc.SetActive(true);

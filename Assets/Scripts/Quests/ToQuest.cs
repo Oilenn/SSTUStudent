@@ -178,7 +178,7 @@ public class ToQuest : MonoBehaviour
             IsRacingFinished = true;
         }
 
-        if(IsRaceEnded && IsLessonFinished)
+        if(!IsRaceEnded && IsLessonFinished)
         {
             _runStarter.SetActive(true);
         }
