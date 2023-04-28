@@ -15,6 +15,7 @@ public class OnGame : MonoBehaviour
     [SerializeField] GameObject _LeftArm;
     [SerializeField] GameObject _RightArm;
     [SerializeField] GameObject _GameMenu;
+    [SerializeField] GameObject _cube;
 
 
     Animator _animCamera;
@@ -74,5 +75,10 @@ public class OnGame : MonoBehaviour
     void HelpOff()
     {
         _helpInfo.SetActive(false);
+    }
+
+    void CubeOff()
+    {
+        _cube.SetActive(false);
     }
 }

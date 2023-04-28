@@ -52,5 +52,6 @@ public class TimerToGame : MonoBehaviour
         _camera.SetActive(true);
         _cameraAnim.enabled = false;
         _scriptCamera.enabled = true;
+        Pause._InGame = true;
     }
 }

@@ -4,6 +4,11 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] Animator _animCamera;
+    [SerializeField] GameObject _mainCamera;
+    [SerializeField] GameObject _gameCamera;
+    [SerializeField] GameObject _carMain;
+    [SerializeField] GameObject _car;
+    [SerializeField] Pause _pause;
 
     public GameObject _MainMenu;
     public GameObject _SetMenu;
@@ -13,11 +18,17 @@ public class MainMenu : MonoBehaviour
     public GameObject _Aim;
     public GameObject _Aim2;
 
+
     [Header ("For Start")]
 
     [SerializeField] GameObject _camera;
 
     int _countStart = 0;
+
+    AudioSource _audioCar;
+    SoundDrive _scriptOnDrive;
+    CarController _sciptCarEnabled;
+    Animator _carAnim;
 
     AudioSource _steps;
     camera _cameraScript;
@@ -25,6 +36,9 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+        _audioCar = _carMain.GetComponent<AudioSource>();
+        _scriptOnDrive = _carMain.GetComponent<SoundDrive>();
+        _carAnim = _car.GetComponent<Animator>();
         _cameraScript = _camera.GetComponent<camera>();
         _steps = _player.GetComponent<AudioSource>();
     }
@@ -55,7 +69,6 @@ public class MainMenu : MonoBehaviour
     {
         if (_countStart < 1)
         {
-
             _MainMenu.SetActive(false);
 
             _animCamera.enabled = true;
@@ -68,17 +81,32 @@ public class MainMenu : MonoBehaviour
 
         else
         {
-            _Aim.SetActive(true);
-            _Aim2.SetActive(true);
-            _steps.enabled = true;
-            _MainMenu.SetActive(false);
-            _GameMenu.SetActive(true);
-            _cameraScript.enabled = true;
-            _Esc.SetActive(false);
-            Time.timeScale = 1f;
-            Backing._place = true;
+            if (Pause._InGame)
+            {
+                _pause.ResumeGameTable();
+                _MainMenu.SetActive(false);
+                _GameMenu.SetActive(true);
+                _mainCamera.SetActive(false);
+                _gameCamera.SetActive(true);
+                /*_audioCar.enabled = true;
+                _scriptOnDrive.enabled = true;
+                _carAnim.enabled = true;*/
+            }
 
-            Cursor.visible = false;
+            else
+            {
+                _Aim.SetActive(true);
+                _Aim2.SetActive(true);
+                _steps.enabled = true;
+                _MainMenu.SetActive(false);
+                _GameMenu.SetActive(true);
+                _cameraScript.enabled = true;
+                _Esc.SetActive(false);
+                Time.timeScale = 1f;
+                Backing._place = true;
+
+                Cursor.visible = false;
+            }
         }
     }
 
