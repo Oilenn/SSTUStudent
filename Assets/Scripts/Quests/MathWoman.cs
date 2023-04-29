@@ -14,7 +14,7 @@ public class MathWoman : MonoBehaviour
 
     private IEnumerator OffsetLook()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(15);
         LookAtTable();
     }
 

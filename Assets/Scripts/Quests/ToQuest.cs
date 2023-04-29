@@ -31,6 +31,7 @@ public class ToQuest : MonoBehaviour
     [SerializeField] private GameObject _racingDoor;
 
     [SerializeField] private GameObject _raceStarter;
+    [SerializeField] private GameObject _raceDoorCloser;
     [SerializeField] private GameObject _runStarter;
     [SerializeField] private GameObject _raceExiter;
     private float _fadeTime = 0;
@@ -48,7 +49,7 @@ public class ToQuest : MonoBehaviour
         StartCoroutine(AnimationTimer());
     }
 
-    private void ChangeTask(string text)
+    public void ChangeTask(string text)
     {
         _task.text = text;
     }
@@ -101,8 +102,10 @@ public class ToQuest : MonoBehaviour
 
     private void ComeToRace()
     {
+        Debug.Log("CUM");
         _lessonDoor.SetActive(true);
         _racingDoor.SetActive(false);
+
         if (!IsLessonFinished || !IsRaceEnded)
         {
             _nikita.MoveToRacePosition();
@@ -113,6 +116,7 @@ public class ToQuest : MonoBehaviour
     {
         _lessonDoor.SetActive(false);
         _firstQuest.enabled = true;
+
         if (!IsLessonFinished || !IsRaceEnded)
         {
             _nikita.MoveToLessonPosition();
@@ -178,7 +182,7 @@ public class ToQuest : MonoBehaviour
             IsRacingFinished = true;
         }
 
-        if(!IsRaceEnded && IsLessonFinished)
+        if(IsRacingFinished && IsLessonFinished)
         {
             _runStarter.SetActive(true);
         }
@@ -193,8 +197,23 @@ public class ToQuest : MonoBehaviour
             {
                 if (IsLessonFinished)
                 {
-                    PlayFadedDialog(_nikita.ToHome);
-                    _raceExiter.SetActive(true);
+                    if (!_dialogManager.IsWindowOn())
+                    {
+                        if (Input.GetKeyDown(KeyCode.E))
+                        {
+                            _dialogManager.PlayDialogOnce(_nikita.ToHome);
+                            _nikita.IsTalking = true;
+                        }
+                        else if (_nikita.IsTalking)
+                        {
+                            _raceDoorCloser.SetActive(true);
+                            print("Faded");
+                            _fade.gameObject.SetActive(true);
+                            Fade();
+                            _raceExiter.SetActive(true);
+                            _nikita.IsTalking = false;
+                        }
+                    }
                 }
                 else
                 {

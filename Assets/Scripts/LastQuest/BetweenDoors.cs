@@ -6,6 +6,8 @@ public class BetweenDoors : MonoBehaviour
 {
     [SerializeField] GameObject _fourtRep;
     [SerializeField] GameObject _npcRep;
+    [SerializeField] GameObject _raceDoor;
+    [SerializeField] GameObject _lessonDoor;
 
     // Update is called once per frame
     void Update()

@@ -79,6 +79,7 @@ public class OnGame : MonoBehaviour
 
     void CubeOff()
     {
+        print("Cube");
         _cube.SetActive(false);
     }
 }

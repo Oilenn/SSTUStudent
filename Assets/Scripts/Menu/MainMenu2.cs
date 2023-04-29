@@ -32,16 +32,6 @@ public class MainMenu2 : MonoBehaviour
         {3840, 2160}
     };
 
-    private void Update()
-    {
-        
-    }
-
-    private void Start()
-    {
-        //
-    }
-
     //Метод для деактивации всех объектов главного меню, за исключением аргумента.
     private void UnactiveAll(GameObject MenuEl)
     {
